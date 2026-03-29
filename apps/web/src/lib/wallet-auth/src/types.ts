@@ -1,4 +1,5 @@
-import type { Address, Chain } from 'viem';
+import type { Address } from 'abitype';
+import type { Chain } from 'viem';
 
 export interface WalletAuthConfig {
     appName: string;

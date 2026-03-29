@@ -2,8 +2,18 @@
  * ERC721 Stylus Types
  */
 
-import type { Address, Hash, PublicClient, WalletClient } from 'viem';
+import type { Address } from 'abitype';
 import type { SupportedNetwork } from './constants';
+
+// Re-export Address from abitype
+export type { Address };
+
+// Type alias for transaction hash
+export type Hash = `0x${string}`;
+
+// Type aliases for viem clients
+export type PublicClient = any;
+export type WalletClient = any;
 
 /**
  * Collection deployment parameters

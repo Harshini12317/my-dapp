@@ -3,7 +3,10 @@
  */
 
 import { ethers } from 'ethers';
-import type { Address, Hash } from 'viem';
+import type { Address } from 'abitype';
+
+// Transaction hash type
+type Hash = `0x${string}`;
 import { ERC721_ABI } from './constants';
 import type { CollectionInfo, NFTInfo, BalanceInfo } from './types';
 

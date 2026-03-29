@@ -3,7 +3,10 @@
  */
 
 import { useState, useCallback, useEffect } from 'react';
-import type { Address, Hash } from 'viem';
+import type { Address } from 'abitype';
+
+// Transaction hash type
+type Hash = `0x${string}`;
 import { ERC721_ABI } from '../constants';
 import type { 
   UseERC721InteractionsOptions, 
