@@ -657,6 +657,13 @@ export function ERC721InteractionPanel({
         </div>
       </div>
 
+      {walletConnected && currentChain?.id && currentChain.id !== networkConfig.chainId && (
+        <div className="p-2 mt-2 rounded-lg border border-yellow-500/30 bg-yellow-500/10 text-[10px] text-yellow-200">
+          Connected chain ({currentChain.name} / {currentChain.id}) does not match selected target network ({networkConfig.name}).
+          Transactions will attempts to switch your wallet network automatically when sending a transaction.
+        </div>
+      )}
+
       {/* Network Selector */}
       <div className="space-y-1.5">
         <label className="text-xs text-forge-muted flex items-center gap-1.5">

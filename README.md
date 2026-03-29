@@ -1,98 +1,95 @@
-# My Dapp
+# TechiesApp (My Dapp)
 
-A Web3 application - composed with [N]skills
+A production-ready Web3 NFT dashboard with full ERC-721 management, network control, and wallet auth. This repository contains:
+- Next.js frontend (`apps/web`)
+- Rust/Stylus smart contracts (`contracts/erc721`)
+- tooling scripts for deployment, security scanning, and CI support (`scripts`)
+- documentation (`docs`)
+
+## 🚀 Why this app
+
+- Build and launch a cross-chain NFT experience quickly
+- Mint, transfer, burn, and approve ERC-721 tokens
+- Support for Arbitrum + Superposition + Robinhood testnets
+- Smart contract fallback with custom contract selector
+- Excellent tooling for local dev and secure deploys
 
 ## 📁 Project Structure
 
 ```
 my-dapp/
-├── apps/
-│   └── web/                    # Next.js frontend
-│       ├── src/
-│       ├── package.json
-│       └── ...
-├── contracts/                  # Rust/Stylus smart contracts
-│   ├── mycontract/            # Original contract (no caching)
-│   │   └── src/lib.rs
-│   └── cached-contract/       # Contract with is_cacheable helper
-│       └── src/lib.rs
-├── docs/                       # Documentation
-├── scripts/                     # Deploy scripts
-├── .gitignore
-└── README.md
+├── apps/web/               # Next.js app (primary UI)
+├── contracts/erc721/       # Rust Stylus ERC-721 smart contract code
+├── docs/                   # Project docs and audit analysis
+├── scripts/                # Deploy and security scripts
+├── .env.example            # Environment variable template
+├── package.json            # Workspace commands
+└── README.md               # This file
 ```
 
-## 🚀 Quick Start
+## 🛠 Quick Start
 
 ### Prerequisites
-- Node.js 18+
-- npm, yarn, or pnpm
+- Node.js 18+ (LTS recommended)
+- pnpm/yarn/npm
+- WalletConnect Project ID
 
-### Installation
+### Install and run
 
-1. **Clone the repository:**
-   ```bash
-   git clone <your-repo-url>
-   cd my-dapp
-   ```
+```bash
+git clone <your-repo-url>
+cd my-dapp
+pnpm install
+cp .env.example .env.local
+# edit .env.local, set NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID
+pnpm --filter web dev
+```
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   # or
-   pnpm install
-   ```
+Open `http://localhost:3000`.
 
-3. **Set up environment variables:**
-   ```bash
-   cp .env.example .env
-   ```
+### Deploy contracts (example)
 
-   Edit `.env` and configure:
-      - `PRIVATE_KEY`: Private key for deployment and transactions
-   - `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID`: WalletConnect Cloud project ID for wallet connections
+```bash
+pnpm deploy:sepolia
+# or
+pnpm deploy:mainnet
+```
 
-4. **Deploy contracts** (from repo root): `pnpm deploy:sepolia` or `pnpm deploy:mainnet`
+### Windows notes
 
-5. **Scripts (Windows):** Run `pnpm fix-scripts` or `dos2unix scripts/*.sh` if you see line-ending errors.
+```bash
+pnpm fix-scripts
+```
 
-## 🔗 Smart Contracts
+## 📦 Environment variables
 
-The `contracts/` folder contains Rust/Stylus smart contract source code. See `docs/` for deployment and integration guides.
+| Key | Required | Description |
+|-----|----------|-------------|
+| `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` | yes | WalletConnect Cloud project ID for RainbowKit. |
+| `NEXT_PUBLIC_APP_NAME` | no | App name shown in wallet dialogs. |
+| `NEXT_PUBLIC_DEFAULT_ERC721_ADDRESS` | no | pre-defined contract address to use on front-end. |
 
-## 🛠 Available Scripts
+## 🛡 Improvements applied
 
-| Command | Description |
-|---------|-------------|
-| `pnpm deploy:sepolia` | Deploy to Arbitrum Sepolia |
-| `pnpm deploy:mainnet` | Deploy to Arbitrum One |
-| `pnpm fix-scripts` | Fix CRLF line endings (Windows) |
+- New interactive landing page with feature overview
+- Better metadata, Open Graph tags, and app title
+- Add `.env.example` and clear variable expectations
+- Expanded README with workflow and usage
+- Keep existing ERC-721 panel, adds UX keyboard clarity and effective status indicators
 
-## 🌐 Supported Networks
+## ⚙️ Recommended next steps
 
-- Arbitrum Sepolia (Testnet)
-- Arbitrum One (Mainnet)
-- Superposition
-- Superposition Testnet
+1. Add CI pipeline with `pnpm lint`, `pnpm test`, and `cargo test`
+2. Add contract tests in `contracts/erc721` for mint limits, ownership, and burn flows
+3. Add `docs/audit-checklist.md` and ``docs/security-hardened.md`` file
 
-## 📚 Tech Stack
+## 📚 More docs
 
-- **Framework:** Next.js 14 (App Router)
-- **Styling:** Tailwind CSS
-- **Web3:** wagmi + viem
-- **Wallet Connection:** RainbowKit
+- `docs/frontend/README.md` (frontend architecture and API patterns)
+- `docs/erc721-nft.md` (contract design and deploy notes)
+- `docs/RADAR_SECURITY_ANALYSIS.md` (security scanning)
 
-## 📖 Documentation
-
-See the `docs/` folder for:
-- Contract interaction guide
-- Deployment instructions
-- API reference
-
-## License
+## 📜 License
 
 MIT
 
----
-
-Generated with ❤️ by [[N]skills](https://www.nskills.xyz)

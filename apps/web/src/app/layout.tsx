@@ -7,8 +7,13 @@ import { Providers } from './providers';
     const inter = Inter({ subsets: ['latin'] });
 
     export const metadata: Metadata = {
-      title: 'TechiesApp',
-      description: 'A web3 application made in workshop',
+      title: 'TechiesApp | ERC721 dApp Dashboard',
+      description: 'Build, deploy, and interact with ERC721 NFTs across Arbitrum and Superposition networks.',
+      openGraph: {
+        title: 'TechiesApp NFT Dashboard',
+        description: 'Full-stack Next.js + Stylus dApp with wallet authentication and ERC721 actions.',
+        type: 'website',
+      },
     };
 
     export default function RootLayout({

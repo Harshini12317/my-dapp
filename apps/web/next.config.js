@@ -1,11 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  
-  webpack: (config) => {
-    config.resolve.fallback = { fs: false, net: false, tls: false };
-    config.externals.push('pino-pretty', 'lokijs', 'encoding');
-    return config;
+
+  // Turbopack config (required for Next.js 16)
+  turbopack: {
+    root: __dirname, // fixes multiple lockfile warning
   },
 };
 
