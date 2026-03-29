@@ -2,7 +2,7 @@
  * ERC721 Stylus Constants
  */
 
-import type { Address } from 'viem';
+import type { Address } from 'abitype';
 
 export const CHAIN_IDS = {
   'arbitrum': 42161,

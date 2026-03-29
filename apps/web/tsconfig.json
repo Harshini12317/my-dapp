@@ -17,6 +17,7 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
+    "baseUrl": ".",
     "plugins": [
       {
         "name": "next"
@@ -25,6 +26,9 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "@cradle/erc721-stylus": [
+        "./src/lib/erc721-stylus/src"
       ]
     }
   },

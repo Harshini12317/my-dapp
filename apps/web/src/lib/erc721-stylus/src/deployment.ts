@@ -3,7 +3,7 @@
  */
 
 import { ethers } from 'ethers';
-import type { Address } from 'viem';
+import type { Address } from 'abitype';
 import { 
   FACTORY_ADDRESSES, 
   RPC_ENDPOINTS, 

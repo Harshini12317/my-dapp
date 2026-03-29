@@ -14,7 +14,7 @@ import {
   type CollectionInfo,
   type NFTInfo,
 } from '@cradle/erc721-stylus';
-import type { Address, Hash } from 'viem';
+import type { Address, Hash } from 'abitype';
 
 const NFT_ADDRESS = process.env.NEXT_PUBLIC_NFT_ADDRESS as Address;
 const RPC_ENDPOINT = 'https://sepolia-rollup.arbitrum.io/rpc';

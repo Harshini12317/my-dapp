@@ -7,7 +7,7 @@
 import { useState } from 'react';
 import { useAccount } from 'wagmi';
 import { useERC721Interactions } from '@cradle/erc721-stylus';
-import type { Address } from 'viem';
+import type { Address } from 'abitype';
 
 const NFT_ADDRESS = process.env.NEXT_PUBLIC_NFT_ADDRESS as Address;
 
